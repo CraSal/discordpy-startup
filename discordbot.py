@@ -15,6 +15,9 @@ async def on_command_error(ctx, error):
 @bot.command()
 async def sensi(ctx):
     await ctx.send('他ゲームとのマウスの感度を揃えたいならココ！(※一部課金必※)\nhttps://www.mouse-sensitivity.com/')
-
+    
+@bot.command()
+async def aiming(ctx):
+    await ctx.send('ブラウザで出来るaim練習！(※一部課金必※)\nhttps://aiming.pro/dashboard')
 
 bot.run(token)
