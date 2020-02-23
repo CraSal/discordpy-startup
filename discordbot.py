@@ -1,21 +1,25 @@
 from discord.ext import commands
-import os
-import traceback
+# 自分のBotのアクセストークンに置き換えてください
+TOKEN = 'NjgwOTU1MTQ3MDk0MTk2MjQ0.XlHctA.dwJgCPJk9utj_MUqfwnH53IfqHM'
 
-bot = commands.Bot(command_prefix='/')
-token = os.environ['DISCORD_BOT_TOKEN']
+# 接続に必要なオブジェクトを生成
+client = discord.Client()
 
+# 起動時に動作する処理
+@client.event
+async def on_ready():
+    # 起動したらターミナルにログイン通知が表示される
+    print('ログインしました')
 
-@bot.event
-async def on_command_error(ctx, error):
-    orig_error = getattr(error, "original", error)
-    error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
-    await ctx.send(error_msg)
+# メッセージ受信時に動作する処理
+@client.event
+async def on_message(message):
+    # メッセージ送信者がBotだった場合は無視する
+    if message.author.bot:
+        return
+    # 「!sensi」と発言したら「mouce sensitivity(URL)」が返る処理
+    if message.content == '!sensi':
+        await message.channel.send('他ゲームとのマウスの感度を揃えたいならココ！(※一部課金必※)\nhttps://www.mouse-sensitivity.com')
 
-
-@bot.command()
-async def ping(ctx):
-    await ctx.send('pong')
-
-
-bot.run(token)
+# Botの起動とDiscordサーバーへの接続
+client.run(TOKEN)
