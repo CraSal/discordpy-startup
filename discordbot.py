@@ -19,5 +19,9 @@ async def sensi(ctx):
 @bot.command()
 async def aiming(ctx):
     await ctx.send('ブラウザで出来るaim練習！(※一部課金必※)\nhttps://aiming.pro/dashboard')
+    
+@bot.command()
+async def nyan(ctx):
+    await ctx.send('にゃーん')
 
 bot.run(token)
