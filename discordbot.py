@@ -21,7 +21,11 @@ async def aiming(ctx):
     await ctx.send('ブラウザで出来るaim練習！(※一部課金必※)\nhttps://aiming.pro/dashboard')
     
 @bot.command()
-async def nyan(ctx):
-    await ctx.send('にゃーん')
+async def str6(ctx):
+    await ctx.send('R6S STATS：https://game-rainbow6.ubi.com/ja-jp/home\nR6Tab：https://r6tab.com/')
+    
+@bot.command()
+async def demo(ctx):
+    await ctx.send('None')
 
 bot.run(token)
